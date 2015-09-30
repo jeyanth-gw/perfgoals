@@ -1,0 +1,36 @@
+<div class="col-md-12" align="center">
+<img src="./img/logo.png" width="200" height="116" /> 
+<h2>Performance Evaluation System</h2>
+<section >  
+
+<div class="row" style="margin-left: 35%">
+										<div class="col-md-6">
+											<form action="#" class="alert alert-danger alert-borderless">
+												<div class="input-group">
+													<div class="input-cont">
+														<input ng-model="empSearch.name" placeholder="Employee Name" autofocus class="form-control"/>
+													</div>
+													<span class="input-group-btn">
+													<!-- <button type="button" class="btn green-haze">
+													 &nbsp; <i class="m-icon-swapright m-icon-white"></i>
+													</button> -->
+													</span>
+												</div>
+											</form>
+										</div>
+</div>
+	<div class="col-md-12" align="right">
+	  <ul ng-show="empSearch.name" class="emplist"">
+	    <li ng-repeat="emp in employeeDetails | filter: empSearch" class="employe cf">
+	    <div class="info">
+	      <a href="#/employeeProfile/{{emp.id}}" id="{{emp.id}}">
+	        <img ng-src="data:image/JPEG;base64,{{emp.image}}" alt="Photo of {{emp.name}}"/>
+		          <h4><b>{{emp.name}}</b></b></h4>
+		          <h6>{{emp.designation}}</h6>
+	      </a>
+	      </div>
+	    </li>
+	  </ul> 
+	 </div> 
+</section>
+</div>

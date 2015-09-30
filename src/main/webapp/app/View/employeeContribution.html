@@ -1,0 +1,45 @@
+<ng-include src="'./app/View/menu.html'"></ng-include>  
+<div class="container">
+	<h3 style="color: navy;">Billable Labour: </h3>
+	<table class="table">
+	<thead>
+		<tr>
+			<th>Project</th>
+			<th>Start Date</th>
+			<th>End Date</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>{{contribution.billable.name}}</td>
+			<td>{{contribution.billable.startDate}}</td>
+			<td>{{contribution.billable.endDate}}</td>
+		</tr>
+	</tbody>
+		
+	</table>
+	<br/><br/>
+	<h3 style="color: navy;">Non - Billable Labour:</h3>
+	<table class="table">
+	<thead>
+		<tr>
+			<th>Start Date</th>
+			<th>End Date</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>{{contribution.nonBillable.startDate}}</td>
+			<td>{{contribution.nonBillable.endDate}}</td>
+		</tr>
+	</tbody>
+	</table>
+	
+	<div class="hc-donut" id="billingDonut" ng-model="billingChart"></div>
+	
+	<!-- <select ng-options="item.subItem as item.label for item in values" ng-model="selectedDrpVal">
+    
+</select>{{selectedDrpVal}} -->
+
+
+</div>

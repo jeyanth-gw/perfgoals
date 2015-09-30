@@ -1,0 +1,45 @@
+<ng-include src="'./app/View/menu.html'"></ng-include>   
+<div>
+
+	<div class="form-group col-md-12">
+		<div id="viewPrevGoals" class="hc-goalbar" ng-model="prevGoalValues"></div>
+	</div>
+	  
+	  <div class="col-md-12">
+	  <label class="col-md-2">Select file:</label>
+	    <span class="btn btn-default btn-file">
+	    <div class="col-md-2">
+	     	<input type="file" file-model class="filestyle" ng-model="uploadFirst"/>
+	     	<!-- <input type="file" file-model class="filestyle" ng-model="uploadSecond"/> -->
+	     </div>
+	     <div class="col-md-10">
+	     	<button ng-click="uploadFile()" class="btn btn-primary pull-right">upload me</button> 
+	     </div> 
+	  </span>
+	  </div>
+	  <br><br>  
+	  <div ng-show="onResponse">
+		  
+<style>
+.active{
+	color:#FF0000;
+}
+</style>
+	<nav class="navbar navbar-default" style="height: 5px; margin-top: 445px;">
+	  <div class="container-fluid">
+	    <div class="navbar-header">
+	    </div>
+	    <div>
+	      <ul class="nav navbar-nav" style="padding-top: 10px;cursor: pointer;">
+	       <li ng-repeat="tab in tabs" ng-class="{active:isActiveTab(tab.url)}" ng-click="onClickTab(tab)" style="padding-right: 10px;">{{tab.title}}</li>
+	      </ul>
+	    </div>
+	  </div>
+	</nav>
+
+
+		  <div id="goalView"> 
+		  	<div ng-include="currentTab"></div> 
+		  </div>
+	</div>
+</div>

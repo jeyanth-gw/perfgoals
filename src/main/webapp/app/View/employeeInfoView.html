@@ -1,0 +1,28 @@
+<ng-include src="'./app/View/menu.html'"></ng-include> 
+
+     
+<div class="col-md-8 jumbotron rowContainer" style="margin-left:195px;">	
+	<div class="col-md-6">
+		<b> Name:</b> {{employee.name}}<br><br>
+		<b>Id:</b> {{employee.id}}<br><br>
+		<b>Designation:</b> {{employee.designation}}<br><br>
+		<table class="table">
+			<tr>
+				<th>Name</th>
+				<th>Start Date</th>
+				<th>End Date</th>
+			</tr>
+			<tr ng-repeat="prjtDet in employee.projectDetails">
+				<td>{{prjtDet.name}}</td>
+				<td>{{prjtDet.startDate}}</td>
+				<td>{{prjtDet.endDate}}</td>
+			</tr>
+		</table>
+		<b>Supervisor:</b> {{employee.supervisor}}<br><br>
+		<b>Joining Date:</b> {{employee.joiningDate}}<br><br>
+		<a href={{resumeLink}}>Download Resume Copy</a>
+	</div>
+	<div class="col-md-6">
+		<img ng-src="data:image/JPEG;base64,{{employee.image}}" style="width:100px;height:100px;" class="pull-right" alt="Photo of {{employee.name}}"/>
+	</div>
+</div>

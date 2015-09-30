@@ -1,0 +1,26 @@
+<ng-include src="'./app/View/menu.html'"></ng-include>
+
+<!-- No. of PTOs Taken: <input type="text" ng-model="ptoDays"/> -->
+<div class="container">
+<form class="form-horizontal">
+	  <div class="form-group">
+	    <label for="ptoPTOTaken" class="col-sm-2 control-label">No. of PTOs Taken: </label>
+	    <input class="form-control" ng-model="ptoDays" style="width:65px">
+	  </div>
+</form>
+
+<div ng-model="date" leave-calendar></div>
+<br/>
+<!-- {{ date }} -->
+
+<div class="hc-pie" id="leaveDaysPie" ng-model="leaveChartValues" style="width: 1175px;"></div>
+</div>
+<style>
+	.leaveDays a{
+   background-color : Green !important;
+   background-image :none !important;
+   color: White !important;
+   font-weight:bold !important;
+   font-size: 12pt;
+}
+</style>

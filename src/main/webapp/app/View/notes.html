@@ -1,0 +1,106 @@
+<ng-include src="'./app/View/menu.html'"></ng-include>  
+<style>
+label > input{ /* HIDE RADIO */
+  visibility: hidden; /* Makes input not-clickable */
+  position: absolute; /* Remove input from document flow */
+}
+label > input + img{ /* IMAGE STYLES */
+  cursor:pointer;
+  border:2px solid transparent;
+}
+label > input:checked + img{ /* (RADIO CHECKED) IMAGE STYLES */
+  border:2px solid #f00;
+}
+.datePicInp{
+ width:200px; opacity: 1;border: 1px solid #ccc; border-radius: 4px;
+}
+
+.padTextbox{
+	  margin-left: -40px;
+}
+
+.padEmoticon{
+	padding-right: 5px;
+}
+</style>
+{{notesForm}}
+<!-- <div ng-switch on="notesList"> -->
+<div class="rowContainer">
+	<div ng-show="notesList" class="notesDiv col-md-12" id="firstSec">
+		<label>
+	      		<input type="checkbox" id="listAddRow" name="addRows" addbuttons/>
+	      		<img src="./img/addRow.png">
+	    </label>
+		<div ng-repeat="notes in notesList track by $index">
+		<form class="form-horizontal">
+			<!-- <div ng-if="$index == 1">
+				
+			</div> -->
+			<div class="form-group col-md-4">
+				<input name="notesDate" class="datePicInp" style="background-color: #eee;" type="text" ng-model="notes['notesDate'+($index+1)]" ng-disabled="true" notes-calendar/>
+			</div>
+			<div class="form-group col-md-4">
+				<textarea ng-model="notes['text'+($index+1)]" style="width:350px;" ng-disabled="true" class="form-control"></textarea>
+			</div>
+			<div class="form-group col-md-4" >
+				<label>
+				  <input type="radio" name="feeling{{ $index+1 }}"  class="form-control" value="1" ng-model="notes['feel'+($index+1)]" ng-disabled="true"/> 
+				  <img src="./img/revenge-emoticon.gif">
+				</label>
+				<label>
+				  <input type="radio" name="feeling{{ $index+1}}" class="form-control" value="2" ng-model="notes['feel'+($index+1)]" ng-disabled="true"/>
+				  <img src="./img/sad-eyes-smiley-emoticon.gif">
+				</label>
+				<label>
+				  <input type="radio" name="feeling{{ $index+1 }}" class="form-control" value="3" ng-model="notes['feel'+($index+1)]" ng-disabled="true"/>
+				  <img src="./img/widely-grinning-smiley-emoticon.gif">
+				</label>
+				<label>
+				  <input type="radio" name="feeling{{ $index+1}}" class="form-control" value="4" ng-model="notes['feel'+($index+1)]" ng-disabled="true"/>
+				  <img src="./img/thumbs-up.gif">
+				</label>
+			</div>
+			</form>
+			</div>
+		<!-- 	{{notes}} -->
+	</div>
+	</div>
+	<div ng-hide="notesList" class="rowContainer">
+       <div class="notesDiv col-md-12" id="secDiv">
+       		<label>
+       		<input type="checkbox" id="addRow" name="addRows" addbuttons/>
+       		<img src="./img/addRow.png">
+       		</label>
+       		<form class="form-horizontal">
+       		<div class="form-group col-md-4">
+				<input name="notesDate" type="text" ng-model="notesList.notesDate1" class='datePicInp' type="text" notes-calendar/>
+			</div>
+			<div class="form-group col-md-4">
+				<textarea ng-model="notesList.text1" style="width:350px;" class="form-control"></textarea>
+			</div>
+			<div class="form-group col-md-4" >
+				<label>
+				  <input type="radio" name="feeling" class="form-control" value="1" ng-model="notesList.feel1"/>
+				  <img src="./img/revenge-emoticon.gif">
+				</label>
+				<label>
+				  <input type="radio" name="feeling" class="form-control" value="2" ng-model="notesList.feel1"/>
+				  <img src="./img/sad-eyes-smiley-emoticon.gif">
+				</label>
+				<label>
+				  <input type="radio" name="feeling" class="form-control" value="3" ng-model="notesList.feel1"/>
+				  <img src="./img/widely-grinning-smiley-emoticon.gif">
+				</label>
+				<label>
+				  <input type="radio" name="feeling" class="form-control" value="4" ng-model="notesList.feel1"/>
+				  <img src="./img/thumbs-up.gif">
+				</label>
+			</div>
+			</form>
+		</div>
+    </div>
+ <!--    {{notes}} -->
+<!-- </div> -->
+<div >
+	<button ng-click=saveNotes()>Save Data</button>
+</div>

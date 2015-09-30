@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="2.5">
+  <display-name>perfgoals</display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+  <servlet>
+		<servlet-name>perfgoals</servlet-name>
+		<servlet-class>org.glassfish.jersey.servlet.ServletContainer</servlet-class>
+		<init-param>
+			<param-name>jersey.config.server.provider.packages</param-name>
+			<param-value>com.org.rest.goals</param-value>
+		</init-param>
+		<init-param>
+            <param-name>jersey.config.server.provider.classnames</param-name>
+            <param-value>com.jersey.series.upload.download.service;org.glassfish.jersey.media.multipart.MultiPartFeature</param-value>
+        </init-param>
+         <!-- <init-param>
+            <param-name>jersey.config.server.provider.classnames</param-name>
+            <param-value>org.glassfish.jersey.media.multipart.MultiPartFeature</param-value>
+        </init-param> -->
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>perfgoals</servlet-name>
+		<url-pattern>/service/*</url-pattern>
+	</servlet-mapping>
+	<!-- <security-constraint>
+	<web-resource-collection>
+		<web-resource-name>Secure Task Services</web-resource-name>
+		<url-pattern>/service/*</url-pattern>
+	</web-resource-collection>
+	<auth-constraint>
+       <role-name>admin</role-name>
+    </auth-constraint>
+ </security-constraint> -->
+ <login-config>
+    <auth-method>BASIC</auth-method>
+ </login-config>
+</web-app>
